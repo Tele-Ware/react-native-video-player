@@ -217,7 +217,7 @@ export default class VideoPlayer extends Component {
       isMuted,
     });
     this.showControls();
-    
+
   }
 
   onToggleFullScreen() {
@@ -392,7 +392,7 @@ export default class VideoPlayer extends Component {
             customStyles.seekBarProgress,
           ]}
         />
-        { !fullWidth && !disableSeek ? (
+        {!fullWidth && !disableSeek ? (
           <View
             style={[
               styles.seekBarKnob,
@@ -408,7 +408,7 @@ export default class VideoPlayer extends Component {
             onResponderRelease={this.onSeekRelease}
             onResponderTerminate={this.onSeekRelease}
           />
-        ) : null }
+        ) : null}
         <View style={[
           styles.seekBarBackground,
           { flexGrow: 1 - this.state.progress },
@@ -505,8 +505,9 @@ export default class VideoPlayer extends Component {
             }}
           />
         </View>
-        {((!this.state.isPlaying) || this.state.isControlsVisible)
-          ? this.renderControls() : this.renderSeekBar(true)}
+        {((!this.state.isPlaying) || this.state.isControlsVisible) ?
+          !this.props.hideControlsAnyTime ? this.renderControls() : () => null
+          : this.renderSeekBar(true)}
       </View>
     );
   }
