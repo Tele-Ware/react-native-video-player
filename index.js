@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 export default class VideoPlayer extends Component {
   constructor(props) {
     super(props);
-
+  console.log('asd')
     this.state = {
       isStarted: props.autoplay,
       isPlaying: props.autoplay,
